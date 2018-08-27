@@ -7,12 +7,12 @@ while(numeros.length < 6){
     if(numeros.indexOf(numero) === -1){
         numeros.push(numero);
     }
-    
 }
 
 let numerosString = numeros.join('\n');//no windows é \r\n
+numerosString += '\n';
 
-fs.writeFile('mega-sena.txt', numerosString, function(erro){
+fs.writeFile('mega-sena.txt', numerosString, {flag: 'a'}, function(erro){
     if(erro){
         console.log('Erro ao gravar o arquivo');
     }else{
